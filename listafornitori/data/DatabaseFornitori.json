@@ -1,0 +1,57 @@
+[
+ {
+   "cod_fornitore": "TH000",
+   "nome": "Yamaha",
+   "indirizzo": "Siemensstr. 22-34, 25462 Rellingen, Germania",
+   "telefono": 410133,
+   "partita_iva": 8543215395,
+   "sito_web": "https://it.yamaha.com",
+   "rappresentante": "Marco Papini",
+   "data_affiliazione": "16/01/2020",
+   "stato": "P"
+ },
+ {
+   "cod_fornitore": "TH001",
+   "nome": "Casio Italia S.r.l.",
+   "indirizzo": "Milano, Viale Alcide De Gasperi 2 I-20151 Italia",
+   "telefono": 40708611,
+   "partita_iva": 6510110965, 
+   "sito_web": "https://www.casio.com",
+   "rappresentante": "Giuseppe Brauner",
+   "data_affiliazione": "04/03/2021",
+   "stato": "S"
+ },
+ {
+   "cod_fornitore": "TH002",
+   "nome": "Steinway & Sons",
+   "indirizzo": "Milano, Largo G. Donegani 3, 20121 Italia",
+   "telefono": 70018924,
+   "partita_iva": 12561870960,
+   "sito_web": "https://eu.steinway.com",
+   "rappresentante": "Ben Steiner",
+   "data_affiliazione": "10/01/2022",
+   "stato": "S"
+ },
+ {
+   "cod_fornitore": "TH003",
+   "nome": "Roland Corporation",
+   "indirizzo": "2036-1 Nakagawa, Hosoe-cho, Hamana-ku, Hamamatsu, Shizuoka 431-1304, Giappone",
+   "telefono": 776775,
+   "partita_iva": 5377040968,
+   "sito_web": "https://www.roland.com",
+   "rappresentante": "Junichi Miki",
+   "data_affiliazione": "22/02/2020",
+   "stato": "P"
+ },
+ {
+  "cod_fornitore": "TH004",
+  "nome": "Fender",
+  "indirizzo": "Leo House, Birches Industrial Estate, East Grinstead, West Sussex, RH19 1QZ, Regno Unito",
+  "telefono": 959156,
+  "partita_iva": 10258270965,
+  "sito_web": "https://www.fender.com",
+  "rappresentante": "Andy Mooney",
+  "data_affiliazione": "25/03/2021",
+  "stato": "P"
+}
+]

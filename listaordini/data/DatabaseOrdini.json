@@ -1,0 +1,52 @@
+[
+ {
+   "cod_fattura": 100,
+   "cod_fornitore": "TH000",
+   "stato": "In negozio",
+   "data_ordine": "2023-01-07",
+   "data_arrivo_prevista": "2023-01-15",
+   "data_arrivo_effettiva": "2023-01-15",
+   "importo_totale": 539325,
+   "strumenti_totali": 53
+ },
+ {
+   "cod_fattura": 101,
+   "cod_fornitore": "TH001",
+   "stato": "In negozio",
+   "data_ordine": "2023-10-21",
+   "data_arrivo_prevista": "2023-10-30",
+   "data_arrivo_effettiva": "2023-10-31",
+   "importo_totale": 11094,
+   "strumenti_totali": 19
+ },
+ {
+   "cod_fattura": 102,
+   "cod_fornitore": "TH002",
+   "stato": "In negozio",
+   "data_ordine": "2023-10-21",
+   "data_arrivo_prevista": "2023-12-20",
+   "data_arrivo_effettiva": "2023-12-21",
+   "importo_totale": 1149850,
+   "strumenti_totali": 22
+ },
+ {
+   "cod_fattura": 103,
+   "cod_fornitore": "TH003",
+   "stato": "In negozio",
+   "data_ordine": "2024-04-26",
+   "data_arrivo_prevista": "2024-05-25",
+   "data_arrivo_effettiva": null,
+   "importo_totale": 70877,
+   "strumenti_totali": 23
+ },
+ {
+  "cod_fattura": 104,
+  "cod_fornitore": "TH004",
+  "stato": "In arrivo",
+  "data_ordine": "2024-07-29",
+  "data_arrivo_prevista": "2024-08-25",
+  "data_arrivo_effettiva": null,
+  "importo_totale": 85043,
+  "strumenti_totali": 15
+}
+]
