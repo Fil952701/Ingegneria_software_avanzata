@@ -201,7 +201,7 @@ class ViewProdotto(QWidget):
         self.label_data_ordine.setText(_translate("MainWindow", "Data dell\'ordine: " + str(self.prodotto.data_ordine)))
         self.label_marca.setText(_translate("MainWindow", "Marca: " + str(self.prodotto.marca)))
         self.label_nome.setText(_translate("MainWindow", "Nome: " + str(self.prodotto.nome)))
-        self.label_tipo.setText(_translate("MainWindow", "Categoria: " + str(self.prodotto.categoria)))
+        self.label_categoria.setText(_translate("MainWindow", "Categoria: " + str(self.prodotto.categoria)))
         if str(self.prodotto.tipologia) == "PA":
             tipologia = "Pianoforti acustici"
         elif str(self.prodotto.tipologia) == "PD":
@@ -236,7 +236,7 @@ class ViewProdotto(QWidget):
             tipologia = "Armoniche"
         elif str(self.prodotto.tipologia) == "ST":
             tipologia = "Sintetizzatori"
-        self.label_tipologia.setText(_translate("MainWindow", "Tipologia: " + str(tipologia)))
+        self.label_tipologia.setText(_translate("MainWindow", "Tipologia: " + str(self.prodotto.tipologia)))
         self.label_materiale.setText(_translate("MainWindow", "Materiale: " + str(self.prodotto.materiale)))
         self.label_colore.setText(_translate("MainWindow", "Colore: " + str(self.prodotto.colore)))
         self.label_quantita.setText(_translate("MainWindow", "Quantità: " + str(self.prodotto.quantita)))

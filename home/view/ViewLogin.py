@@ -1,16 +1,16 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget, QMessageBox
+from PyQt5 import QtCore, QtGui, QtWidgets # type: ignore
+from PyQt5.QtWidgets import QWidget, QMessageBox # type: ignore
 
 
-class VistaLogin(QWidget):
+class ViewLogin(QWidget):
     def __init__(self, controller, update_ui):
-        super(VistaLogin, self).__init__()
+        super(ViewLogin, self).__init__()
         self.controller = controller
         self.update_ui = update_ui
 
         # Creazione delle due parti principali dell'interfaccia: STATICA e DINAMICA
 
-        # PARTE STATICA
+    # PARTE STATICA
 
         # Interfaccia grafica per il login
         icon = QtGui.QIcon()
@@ -80,7 +80,7 @@ class VistaLogin(QWidget):
         self.retranslateUi()
         QtCore.QMetaObject.connectSlotsByName(self)
 
-        # PARTE DINAMICA
+    # PARTE DINAMICA
 
         # Collegamento con i vari dati da inserire
 
@@ -115,8 +115,7 @@ class VistaLogin(QWidget):
     def popup_errore(self):
         msg = QMessageBox()
         msg.setWindowTitle("WARNING")
-        msg.setText(
-            "Username e password errati.\n\nInserire nuovamente.")
+        msg.setText("Username e password errati.\n\nInserire nuovamente.")
         msg.setIcon(QMessageBox.Warning)
         msg.setStandardButtons(QMessageBox.Yes)
         msg.setDefaultButton(QMessageBox.Yes)

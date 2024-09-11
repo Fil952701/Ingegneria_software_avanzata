@@ -15,6 +15,15 @@ class ControllerListaProdotti:
 
     def get_lista_marche(self):
         return self.model.get_lista_marche()
+    
+    def get_lista_nome(self):
+        return self.model.get_lista_nome()
+    
+    def get_lista_categoria(self):
+        return self.model.get_lista_categoria()
+    
+    def get_lista_tipologia(self):
+        return self.model.get_lista_tipologia()
 
     def inserisci_prodotto(self, prodotto):
         self.model.inserisci_prodotto(prodotto)

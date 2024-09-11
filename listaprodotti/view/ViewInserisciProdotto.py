@@ -153,6 +153,7 @@ class ViewInserisciProdotto(QWidget):
         self.comboBox_categoria.addItem("")
         self.comboBox_categoria.addItem("")
         self.comboBox_categoria.addItem("")
+        self.comboBox_categoria.addItem("")
         self.verticalLayout_3.addWidget(self.comboBox_categoria)
         spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_3.addItem(spacerItem5)
@@ -160,13 +161,26 @@ class ViewInserisciProdotto(QWidget):
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_genere.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(self.label_tipologia.sizePolicy().hasHeightForWidth())
         self.label_tipologia.setSizePolicy(sizePolicy)
         self.label_tipologia.setMinimumSize(QtCore.QSize(0, 20))
         self.label_tipologia.setObjectName("label_tipologia")
         self.verticalLayout_3.addWidget(self.label_tipologia)
         self.comboBox_tipologia = QtWidgets.QComboBox(self.widget)
         self.comboBox_tipologia.setObjectName("comboBox_tipologia")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
+        self.comboBox_tipologia.addItem("")
         self.comboBox_tipologia.addItem("")
         self.comboBox_tipologia.addItem("")
         self.comboBox_tipologia.addItem("")
@@ -307,7 +321,7 @@ class ViewInserisciProdotto(QWidget):
         self.pushButton_salva.clicked.connect(self.controllo_click)
         self.verticalLayout.addWidget(self.pushButton_salva)
         self.pushButton_salva.setStyleSheet("QPushButton {\n"
-                                               "   background-color: rgb(26, 108, 218);\n"
+                                               "   background-color: rgb(26, 218, 108);\n"
                                                "   border-width: 2px;\n"
                                                "   border-radius: 10px;\n"
                                                "   font: bold 12px;\n"
@@ -400,7 +414,8 @@ class ViewInserisciProdotto(QWidget):
             marca = self.lineEdit_marca.text()
             nome = self.lineEdit_nome.text()
             categoria = str(self.comboBox_categoria.currentText())
-            if str(self.comboBox_tipologia.currentText()) == "Pianoforti acustici":
+            tipologia = str(self.comboBox_tipologia.currentText())
+            '''if str(self.comboBox_tipologia.currentText()) == "Pianoforti acustici":
                 tipologia = "PA"
             elif str(self.comboBox_tipologia.currentText()) == "Pianoforti digitali":
                 tipologia = "PD"
@@ -433,7 +448,7 @@ class ViewInserisciProdotto(QWidget):
             elif str(self.comboBox_tipologia.currentText()) == "Armoniche":
                 tipologia = "AR"
             elif str(self.comboBox_tipologia.currentText()) == "Sintetizzatori":
-                tipologia = "ST"
+                tipologia = "ST"'''
             materiale = self.lineEdit_materiale.text()
             colore = self.lineEdit_colore.text()
             quantita = self.lineEdit_quantita.text()
@@ -456,7 +471,8 @@ class ViewInserisciProdotto(QWidget):
             marca = self.lineEdit_marca.text()
             nome = self.lineEdit_nome.text()
             categoria = str(self.comboBox_categoria.currentText())
-            if str(self.comboBox_tipologia.currentText()) == "Pianoforti acustici":
+            tipologia = str(self.comboBox_tipologia.currentText())
+            '''if str(self.comboBox_tipologia.currentText()) == "Pianoforti acustici":
                 tipologia = "PA"
             elif str(self.comboBox_tipologia.currentText()) == "Pianoforti digitali":
                 tipologia = "PD"
@@ -489,7 +505,7 @@ class ViewInserisciProdotto(QWidget):
             elif str(self.comboBox_tipologia.currentText()) == "Armoniche":
                 tipologia = "AR"
             elif str(self.comboBox_tipologia.currentText()) == "Sintetizzatori":
-                tipologia = "ST"
+                tipologia = "ST"'''
             materiale = self.lineEdit_materiale.text()
             colore = self.lineEdit_colore.text()
             quantita = self.lineEdit_quantita.text()

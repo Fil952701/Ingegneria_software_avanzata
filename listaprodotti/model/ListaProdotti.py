@@ -7,7 +7,6 @@ from prodotto.model.Prodotto import Prodotto
 
 # Caricamento dati per prodotti e metodi inerenti
 
-
 class ListaProdotti:
 
     def __init__(self):
@@ -30,6 +29,30 @@ class ListaProdotti:
             else:
                 self.lista_marche.append(prodotto.marca)
         return self.lista_marche
+    
+    def get_lista_nome(self):
+        for prodotto in self.lista_prodotti:
+            if prodotto.nome in self.lista_nome:
+                pass
+            else:
+                self.lista_nome.append(prodotto.nome)
+        return self.lista_nome
+    
+    def get_lista_tipologia(self):
+        for prodotto in self.lista_prodotti:
+            if prodotto.tipologia in self.lista_tipologia:
+                pass
+            else:
+                self.lista_tipologia.append(prodotto.tipologia)
+        return self.lista_tipologia
+    
+    def get_lista_categoria(self):
+        for prodotto in self.lista_prodotti:
+            if prodotto.categoria in self.lista_categoria:
+                pass
+            else:
+                self.lista_categoria.append(prodotto.categoria)
+        return self.lista_categoria
 
     def get_dimensione_lista(self):
         return len(self.lista_prodotti)
@@ -68,7 +91,7 @@ class ListaProdotti:
                 except EOFError:
                     return
         else:
-            with open('./listaprodotti/data/DatabaseProdotti.json') as f:
+            with open('./listaprodotti/data/DatabaseProdotti.json', encoding='utf-8') as f:
                 lista_prodotti_json = json.load(f)
                 for prodotto_da_caricare in lista_prodotti_json:
                     self.lista_prodotti.append(
@@ -82,7 +105,7 @@ class ListaProdotti:
                                  prodotto_da_caricare["stato"],
                                  prodotto_da_caricare["sconto_consigliato"],
                                  prodotto_da_caricare["sconto"], prodotto_da_caricare["data_vendita"]))
-
+    
     # Salvataggio contenuto della lista generica su file pickle
     def save_data(self):
         with open('listaprodotti/data/DatabaseProdotti.pickle', 'wb') as handle:

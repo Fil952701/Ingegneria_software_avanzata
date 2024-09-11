@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    image: ingegneria_software_avanzata-web:latest
+    container_name: ingegneria_software_avanzata-web-1
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+      

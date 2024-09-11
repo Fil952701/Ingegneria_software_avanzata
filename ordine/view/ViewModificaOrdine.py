@@ -55,11 +55,11 @@ class ViewModificaOrdine(QWidget):
         self.pushButton = QtWidgets.QPushButton(self)
         self.pushButton.setObjectName("pushButton")
         self.gridLayout.addWidget(self.pushButton, 10, 5, 1, 1)
-        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.pushButton_2 = QtWidgets.QPushButton(self)
         self.pushButton_2.setObjectName("pushButton_2")
         self.gridLayout.addWidget(self.pushButton_2, 10, 1, 1, 1)
-        self.pushButton_2.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_2.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.label_7 = QtWidgets.QLabel(self)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -240,7 +240,7 @@ class ViewModificaOrdine(QWidget):
 
     def closeEvent(self, event):
         if self.end1==False:
-            reply = QMessageBox.question(self, 'Annullamento in corso...',
+            reply = QMessageBox.question(self, 'Annullamento modifiche',
                                          'Sicuro di voler annullare? Tutte le modifiche andranno perse.',
                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 

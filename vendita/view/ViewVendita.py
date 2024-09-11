@@ -75,12 +75,19 @@ class ViewVendita(QWidget):
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.MinimumExpanding,
                                             QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem2, 0, 3, 1, 1)
-        self.taglia = QtWidgets.QComboBox(self.widget)
-        self.taglia.setObjectName("taglia")
-        for count in range(16, 49):
-            self.taglia.addItem(str(count))
-        self.gridLayout_3.addWidget(self.taglia, 0, 2, 1, 1)
-        self.taglia.setStyleSheet("QComboBox {\n"
+        self.colore = QtWidgets.QComboBox(self.widget)
+        self.colore.setObjectName("colore")
+        self.colore.addItem("Selezionare un colore...")
+        self.colore.addItem("Nero")
+        self.colore.addItem("Bianco")
+        self.colore.addItem("Marrone")
+        self.colore.addItem("Oro")
+        self.colore.addItem("Argento")
+        self.colore.addItem("Blu")
+        self.colore.addItem("Rosso")
+        self.colore.addItem("Panna")
+        self.gridLayout_3.addWidget(self.colore, 0, 2, 1, 1)
+        self.colore.setStyleSheet("QComboBox {\n"
                                  "   background-color:rgb(26, 108, 218);\n"
                                  "   border-width: 2px;\n"
                                  "   font: 12px;\n"
@@ -111,7 +118,7 @@ class ViewVendita(QWidget):
         self.pushButton = QtWidgets.QPushButton(self.widget_3)
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout.addWidget(self.pushButton)
-        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(228, 107, 41);\n""   border-width: 2px;\n""   border-radius:bold 15px;\n""   font: bold 12px;\n""   padding: 10px;\n""   color: black;\n""}")
+        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(228, 80, 41);\n""   border-width: 2px;\n""   border-radius:bold 15px;\n""   font: bold 12px;\n""   padding: 10px;\n""   color: black;\n""}")
         self.pushButton.clicked.connect(self.vendi)
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem4)
@@ -131,21 +138,23 @@ class ViewVendita(QWidget):
         _translate = QtCore.QCoreApplication.translate
         self.setWindowTitle(_translate("MainWindow", "Vendi prodotto"))
         self.pushButton.setText(_translate("MainWindow", "Vendi"))
-        self.cerca.setPlaceholderText(_translate("MainWindow", "Inserisci codice e premi invio"))
+        self.cerca.setPlaceholderText(_translate("MainWindow", "Inserisci codice e premi invio..."))
         if self.flag:
-            self.vista_prodotto_da_vendere = ViewDisplayProdotto(self.prodotto_trovato, self.retranslateUi, self.controller, None)
-            self.widget_vendita = self.vista_prodotto_da_vendere
+            self.view_prodotto_da_vendere = ViewDisplayProdotto(self.prodotto_trovato, self.retranslateUi, self.controller, None)
+            self.widget_vendita = self.view_prodotto_da_vendere
             self.gridLayout_3.addWidget(self.widget_vendita, 0, 0, 1, 1)
 
     def cerca_prodotto(self):
         cod_prodotto_cerca = str(self.cerca.text())
         cod_prodotto = cod_prodotto_cerca.capitalize()
-        for prodotto in self.controller.get_lista_prodotti():
-            if str(prodotto.cod_prodotto) == str(cod_prodotto) and str(prodotto.stato) == "In negozio":
-                self.prodotto_trovato = prodotto
-                self.flag = True
-            else:
-                return
+        if self.colore.currentText()!="Selezionare un colore...":
+            for prodotto in self.controller.get_lista_prodotti():
+                if str(prodotto.cod_prodotto) == str(cod_prodotto) and str(prodotto.colore) == str(self.colore.currentText()) and str(prodotto.stato) == "In negozio":
+                    self.prodotto_trovato = prodotto
+                    self.flag = True
+                    break
+        else:
+            return
         #print(self.prodotto_trovato)
         if self.prodotto_trovato is None:
             self.popup_errore()
@@ -153,11 +162,20 @@ class ViewVendita(QWidget):
         self.retranslateUi()
 
     def vendi(self):
-        if self.flag:
-            self.prodotto_trovato.stato = "Venduto"
-            data_odierna = datetime.datetime.now()
-            self.prodotto_trovato.data_vendita = str("%s/%s/%s" % (data_odierna.day, data_odierna.month, data_odierna.year))
-            self.popup_venduto()
+        try:
+            if self.flag:
+                self.prodotto_trovato.stato = "Venduto"
+                data_odierna = datetime.datetime.now()
+                self.prodotto_trovato.data_vendita = str("%s/%s/%s" % (data_odierna.day, data_odierna.month, data_odierna.year))
+                self.popup_venduto()
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Errore")
+                msg.setText("Seleziona un prodotto ed un colore prima di procedere alla vendita.")
+                msg.setIcon(QMessageBox.Warning)
+                msg.exec_()
+        except Exception as e:
+            print(f"Errore durante il processo di vendita: {str(e)}")
 
     def popup_errore(self):
         msg = QMessageBox()
@@ -174,7 +192,7 @@ class ViewVendita(QWidget):
         msg = QMessageBox()
         msg.setWindowTitle("VENDUTO")
         msg.setText(
-            "Hai venduto il prodotto appena immesso. \n\n"
+            "Hai venduto il prodotto del colore appena immesso. \n\n"
             "Puoi verificare il suo stato nella sezione prodotti.")
         msg.setIcon(QMessageBox.Warning)
         msg.setStandardButtons(QMessageBox.Yes)

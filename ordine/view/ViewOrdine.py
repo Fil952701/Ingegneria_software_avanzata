@@ -86,19 +86,19 @@ class ViewOrdine(QWidget):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(5, item)
 
-        self.tableWidget.setColumnWidth(0, self.width/10)
-        self.tableWidget.setColumnWidth(1, self.width/7)
-        self.tableWidget.setColumnWidth(2, self.width/7)
-        self.tableWidget.setColumnWidth(3, self.width/8)
-        self.tableWidget.setColumnWidth(4, self.width/8)
-        self.tableWidget.setColumnWidth(5, self.width/7.3)
+        self.tableWidget.setColumnWidth(0, int(self.width/10))
+        self.tableWidget.setColumnWidth(1, int(self.width/7))
+        self.tableWidget.setColumnWidth(2, int(self.width/7))
+        self.tableWidget.setColumnWidth(3, int(self.width/8))
+        self.tableWidget.setColumnWidth(4, int(self.width/8))
+        self.tableWidget.setColumnWidth(5, int(self.width/7.3))
         self.gridLayout.addWidget(self.tableWidget, 2, 2, 11, 7)
         self.pushButton_aggiungi_prodotto = QtWidgets.QPushButton(self)
         self.pushButton_aggiungi_prodotto.setMinimumSize(QtCore.QSize(100, 0))
         self.pushButton_aggiungi_prodotto.setObjectName("pushButton_aggiugni_prodotto")
         self.pushButton_aggiungi_prodotto.clicked.connect(self.show_inserisci_prodotto)
         self.gridLayout.addWidget(self.pushButton_aggiungi_prodotto, 1, 8, 1, 1)
-        self.pushButton_aggiungi_prodotto.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_aggiungi_prodotto.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.label_4 = QtWidgets.QLabel(self)
         font = QtGui.QFont()
         font.setPointSize(11)
@@ -142,7 +142,7 @@ class ViewOrdine(QWidget):
         self.pushButton_apri.setMaximumSize(QtCore.QSize(130, 16777215))
         self.pushButton_apri.setObjectName("pushButton_apri")
         self.gridLayout.addWidget(self.pushButton_apri, 1, 6, 1, 1)
-        self.pushButton_apri.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_apri.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 218, 108);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
         self.pushButton_apri.clicked.connect(self.show_prodotto)
         self.label_11 = QtWidgets.QLabel(self)
         font = QtGui.QFont()
@@ -178,7 +178,7 @@ class ViewOrdine(QWidget):
         self.pushButton = QtWidgets.QPushButton(self)
         self.pushButton.setObjectName("pushButton_modifica")
         self.horizontalLayout.addWidget(self.pushButton)
-        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.pushButton.clicked.connect(self.show_modifica_ordine)
         spacerItem7 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem7)
@@ -190,7 +190,7 @@ class ViewOrdine(QWidget):
                                               "}")
         self.pushButton_elimina.clicked.connect(self.elimina_ordine_click)
         self.horizontalLayout.addWidget(self.pushButton_elimina)
-        self.pushButton_elimina.setStyleSheet("QPushButton {\n""   background-color: red;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_elimina.setStyleSheet("QPushButton {\n""   background-color: red;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.gridLayout.addLayout(self.horizontalLayout, 12, 0, 1, 2)
         self.gridLayout_2.addLayout(self.gridLayout, 0, 0, 1, 1)
 
@@ -230,9 +230,9 @@ class ViewOrdine(QWidget):
             item.setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignHCenter)
             self.tableWidget.setItem(row, 0, QtWidgets.QTableWidgetItem(item))
             self.tableWidget.setItem(row, 1, QtWidgets.QTableWidgetItem(prodotto.marca))
-            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(prodotto.tipo))
+            self.tableWidget.setItem(row, 2, QtWidgets.QTableWidgetItem(prodotto.categoria))
             self.tableWidget.setItem(row, 3, QtWidgets.QTableWidgetItem(str(prodotto.quantita)))
-            self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(prodotto.categoria)))
+            self.tableWidget.setItem(row, 4, QtWidgets.QTableWidgetItem(str(prodotto.tipologia)))
             self.tableWidget.setItem(row, 5, QtWidgets.QTableWidgetItem(str(prodotto.prezzo_acquisto) + " €"))
 
             row = row + 1
@@ -281,7 +281,7 @@ class ViewOrdine(QWidget):
             time.sleep(0.3)
 
     def elimina_ordine_click(self):
-        reply = QMessageBox.question(self, 'Warning', "Eliminando questo ordine eliminerai anche tutti i prodotti in esso contenuti. Proseguire?",
+        reply = QMessageBox.question(self, 'WARNING', "Eliminando questo ordine eliminerai anche tutti i prodotti in esso contenuti. Proseguire?",
                                      QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
         if reply == QMessageBox.Yes:
             # eliminando l'ordine l'utente sceglie di eliminare anche tutti i prodotti in lista_prodotti_ordine

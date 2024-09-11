@@ -66,7 +66,7 @@ class ViewDisplayProdotto(QWidget):
                                             "   border-radius: 10px;\n"
                                             "   font: bold 12px;\n"
                                             "   padding: 6px;\n"
-                                            "   color: black;\n"
+                                            "   color: white;\n"
                                             "}")
         self.pushButton_dettagli.clicked.connect(self.show_prodotto)
         self.gridLayout.addWidget(self.pushButton_dettagli, 4, 0, 1, 2)

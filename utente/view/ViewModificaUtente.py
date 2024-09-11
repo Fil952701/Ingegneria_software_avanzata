@@ -536,7 +536,7 @@ class ViewModificaUtente(QWidget):
 
     def closeEvent(self, event):
         if self.end1==False:
-            reply = QMessageBox.question(self, 'Annullamento in corso...',
+            reply = QMessageBox.question(self, 'Annullamento modifiche',
                                          'Sicuro di voler annullare? Tutte le modifiche andranno perse.',
                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 

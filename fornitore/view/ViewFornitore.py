@@ -114,7 +114,7 @@ class ViewFornitore(QWidget):
                                                "   border-radius: 10px;\n"
                                                "   font: bold 12px;\n"
                                                "   padding: 6px;\n"
-                                               "   color: black;\n"
+                                               "   color: white;\n"
                                                "}")
         self.setLayout(self.v_layout)
         self.setWindowTitle("Fornitore")
@@ -148,7 +148,7 @@ class ViewFornitore(QWidget):
 
     def closeEvent(self, event):
         if self.end1==True:
-            reply = QMessageBox.question(self, 'Eliminazione in corso...',
+            reply = QMessageBox.question(self, 'Eliminazione',
                                          "Sicuro di voler eliminare l'utente selezionato?",
                                          QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
 

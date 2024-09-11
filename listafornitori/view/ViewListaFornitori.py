@@ -53,7 +53,7 @@ class ViewListaFornitori(QWidget):
         self.pushButton_nuovo.setObjectName("pushButton_nuovo")
         self.pushButton_nuovo.clicked.connect(self.show_inserisci_fornitore)
         self.verticalLayout_2.addWidget(self.pushButton_nuovo)
-        self.pushButton_nuovo.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_nuovo.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem1)
         self.gridLayout.addLayout(self.verticalLayout_2, 5, 7, 1, 1)
@@ -103,7 +103,9 @@ class ViewListaFornitori(QWidget):
                                     "   background-color:white;\n"
                                     "   border-width: 2px;\n"
                                     "   border-radius: 10px;\n"
+                                    "   font: 12px;\n"
                                     "   padding: 6px;\n"
+                                    "   color: black;\n"
                                     "}")
         spacerItem4 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem4, 2, 7, 1, 1)
@@ -122,12 +124,12 @@ class ViewListaFornitori(QWidget):
         self.tableWidget.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(5, item)
-        self.tableWidget.setColumnWidth(0, self.width/8)
-        self.tableWidget.setColumnWidth(1, self.width/7.05)
-        self.tableWidget.setColumnWidth(2, self.width/7.05)
-        self.tableWidget.setColumnWidth(3, self.width/7.05)
-        self.tableWidget.setColumnWidth(4, self.width/7.05)
-        self.tableWidget.setColumnWidth(5, self.width/7.05)
+        self.tableWidget.setColumnWidth(0, int(self.width/8))
+        self.tableWidget.setColumnWidth(1, int(self.width/7.05))
+        self.tableWidget.setColumnWidth(2, int(self.width/7.05))
+        self.tableWidget.setColumnWidth(3, int(self.width/7.05))
+        self.tableWidget.setColumnWidth(4, int(self.width/7.05))
+        self.tableWidget.setColumnWidth(5, int(self.width/7.05))
         self.gridLayout.addWidget(self.tableWidget, 5, 1, 1, 6)
         spacerItem5 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         self.gridLayout.addItem(spacerItem5, 4, 1, 1, 7)
@@ -143,7 +145,7 @@ class ViewListaFornitori(QWidget):
         self.pushButton_stato1.setObjectName("pushButton_stato1")
         self.pushButton_stato1.clicked.connect(self.filter_standard)
         self.gridLayout_3.addWidget(self.pushButton_stato1, 0, 1, 1, 1)
-        self.pushButton_stato1.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""min-width: 80px;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_stato1.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""min-width: 80px;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         spacerItem7 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem7, 0, 2, 1, 1)
         self.pushButton_stato2 = QtWidgets.QPushButton(self)
@@ -161,7 +163,7 @@ class ViewListaFornitori(QWidget):
         self.pushButton_all.setObjectName("pushButton_all")
         self.pushButton_all.clicked.connect(self.filter_all)
         self.gridLayout_3.addWidget(self.pushButton_all, 0, 5, 1, 1)
-        self.pushButton_all.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""min-width: 80px;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: black;\n""}")
+        self.pushButton_all.setStyleSheet("QPushButton {\n""   background-color: rgb(26, 108, 218);\n""min-width: 80px;\n""   border-width: 2px;\n""   border-radius: 10px;\n""   font: bold 12px;\n""   padding: 6px;\n""   color: white;\n""}")
         self.gridLayout.addLayout(self.gridLayout_3, 3, 1, 1, 2)
         spacerItem9 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Preferred)
         self.gridLayout.addItem(spacerItem9, 0, 1, 1, 7)

@@ -27,6 +27,7 @@ class ViewListaProdotti(QWidget):
         self.setWindowIcon(icon)
         self.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.setStyleSheet("background-color: rgb(255, 255, 255);")
+        #self.setStyleSheet("background-image: url('immagini_home/data/musica.jpg');")
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -88,7 +89,7 @@ class ViewListaProdotti(QWidget):
         self.inserisci_button.setSizePolicy(sizePolicy)
         self.inserisci_button.setObjectName("inserisci_button")
         self.inserisci_button.setStyleSheet("QPushButton {\n"
-                                        "   background-color:rgb(26, 108, 218);\n"
+                                        "   background-color:rgb(26, 218, 108);\n"
                                         "   border-width: 2px;\n"
                                         "   border-radius: 10px;\n"
                                         "   font: bold 12px;\n"
@@ -121,7 +122,7 @@ class ViewListaProdotti(QWidget):
         self.tipologia.addItem("Sintetizzatori")
         self.gridLayout_3.addWidget(self.tipologia, 3, 6, 1, 1)
         self.tipologia.setStyleSheet("QComboBox {\n"
-                                  "   background-color:rgb(26, 108, 218);\n"
+                                  "   background-color:rgb(255, 255, 255);\n"
                                   "   border-width: 2px;\n"
                                   "   font: 12px;\n"
                                   "   padding: 3px;\n"
@@ -131,6 +132,7 @@ class ViewListaProdotti(QWidget):
         # nome
         self.nome = QtWidgets.QComboBox(self.topWidget)
         self.nome.setObjectName("nome")
+        self.nome.addItem("Nome")
         self.nome.addItem("C3")
         self.nome.addItem("B2")
         self.nome.addItem("YAS-875EX")
@@ -181,7 +183,7 @@ class ViewListaProdotti(QWidget):
         self.nome.addItem("Fantom 6 EX")
         self.gridLayout_3.addWidget(self.nome, 3, 8, 1, 1)
         self.nome.setStyleSheet("QComboBox {\n"
-                                  "   background-color:rgb(26, 108, 218);\n"
+                                  "   background-color:rgb(255, 255, 255);\n"
                                   "   border-width: 2px;\n"
                                   "   font: 12px;\n"
                                   "   padding: 3px;\n"
@@ -194,7 +196,7 @@ class ViewListaProdotti(QWidget):
         self.categoria.addItems(["Aerofoni", "Cordofoni", "Membranofoni", "Idiofoni", "Elettrofoni"])
         self.gridLayout_3.addWidget(self.categoria, 3, 5, 1, 1)
         self.categoria.setStyleSheet("QComboBox {\n"
-                                  "   background-color:rgb(26, 108, 218);\n"
+                                  "   background-color:rgb(255, 255, 255);\n"
                                   "   border-width: 2px;\n"
                                   "   font: 12px;\n"
                                   "   padding: 3px;\n"
@@ -209,7 +211,7 @@ class ViewListaProdotti(QWidget):
             self.marca.addItem(str(item))
         self.gridLayout_3.addWidget(self.marca, 3, 4, 1, 1)
         self.marca.setStyleSheet("QComboBox {\n"
-                                  "   background-color:rgb(26, 108, 218);\n"
+                                  "   background-color:rgb(255, 255, 255);\n"
                                   "   border-width: 2px;\n"
                                   "   font: 12px;\n"
                                   "   padding: 3px;\n"
@@ -263,12 +265,12 @@ class ViewListaProdotti(QWidget):
         self.venduto = QtWidgets.QPushButton(self.topWidget)
         self.venduto.setObjectName("venduto")
         self.venduto.setStyleSheet("QPushButton {\n"
-                                            "   background-color:rgb(26, 108, 218);\n"
+                                            "   background-color:rgb(218, 108, 26);\n"
                                             "   border-width: 2px;\n"
                                             "   border-radius: 10px;\n"
                                             "   font: bold 12px;\n"
                                             "   padding: 6px;\n"
-                                            "   color: white;\n"
+                                            "   color: black;\n"
                                             "}")
         self.gridLayout_3.addWidget(self.venduto, 1, 2, 1, 1)
         self.venduto.clicked.connect(self.show_venduto)
@@ -276,12 +278,12 @@ class ViewListaProdotti(QWidget):
         self.reso = QtWidgets.QPushButton(self.topWidget)
         self.reso.setObjectName("reso")
         self.reso.setStyleSheet("QPushButton {\n"
-                                            "   background-color:rgb(26, 108, 218);\n"
+                                            "   background-color:rgb(218, 108, 26);\n"
                                             "   border-width: 2px;\n"
                                             "   border-radius: 10px;\n"
                                             "   font: bold 12px;\n"
                                             "   padding: 6px;\n"
-                                            "   color: white;\n"
+                                            "   color: black;\n"
                                             "}")
         self.gridLayout_3.addWidget(self.reso, 1, 3, 1, 1)
         self.reso.clicked.connect(self.show_reso)
@@ -399,7 +401,9 @@ class ViewListaProdotti(QWidget):
     def filtro_lista(self, IA, IN, V, R):
         filtro_marca = str(self.marca.currentText())
         filtro_categoria = str(self.categoria.currentText())
-        if str(self.tipologia.currentText()) == "Pianoforti acustici":
+        filtro_nome = str(self.nome.currentText())
+        filtro_tipologia = str(self.tipologia.currentText())
+        '''if str(self.tipologia.currentText()) == "Pianoforti acustici":
             filtro_tipologia = "PA"
         elif str(self.tipologia.currentText()) == "Pianoforti digitali":
             filtro_tipologia = "PD"
@@ -434,7 +438,7 @@ class ViewListaProdotti(QWidget):
         elif str(self.tipologia.currentText()) == "Sintetizzatori":
             filtro_tipologia = "ST"
         else:
-            filtro_tipologia = "Tipologia"
+            filtro_tipologia = "Tipologia"'''
 
         elementi_da_rimuovere = []
         lista = self.controller_lista_prodotti.get_lista_prodotti()
@@ -489,6 +493,13 @@ class ViewListaProdotti(QWidget):
             for prodotto in elementi_da_rimuovere:
                 self.lista_prodotti_filtrata.remove(prodotto)
             elementi_da_rimuovere.clear()
+        if filtro_nome != "Nome":
+            for prodotto in self.lista_prodotti_filtrata:
+                if str(prodotto.nome) != str(filtro_nome):
+                    elementi_da_rimuovere.append(prodotto)
+            for prodotto in elementi_da_rimuovere:
+                self.lista_prodotti_filtrata.remove(prodotto)
+            elementi_da_rimuovere.clear()
 
         self.retranslateUi()
 
@@ -503,7 +514,7 @@ class ViewListaProdotti(QWidget):
             self.widget_generico = QtWidgets.QWidget(self.scrollAreaWidgetContents)
             self.displayprodotto1 = ViewDisplayProdotto(prodotto, self.retranslateUi, self.controller_lista_prodotti, self.lista_prodotti_filtrata)
             self.widget_generico = self.displayprodotto1
-            self.widget_generico.setMinimumSize(QtCore.QSize((width / 3.2), 450))
+            self.widget_generico.setMinimumSize(QtCore.QSize((int(width / 3.2)), 450))
 
             self.gridLayout_2.addWidget(self.widget_generico, row, column, 1, 1)
 

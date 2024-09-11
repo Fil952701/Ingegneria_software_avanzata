@@ -395,6 +395,7 @@ class ViewModificaProdotto(QWidget):
         cod_prodotto = self.lineEdit_cod_prodotto.text()
         marca = self.lineEdit_marca.text()
         nome = self.lineEdit_nome.text()
+        '''
         if str(self.comboBox_tipologia.currentText()) == "Pianoforti acustici":
             tipologia = "PA"
         elif str(self.comboBox_tipologia.currentText()) == "Pianoforti digitali":
@@ -428,8 +429,9 @@ class ViewModificaProdotto(QWidget):
         elif str(self.comboBox_tipologia.currentText()) == "Armoniche":
             tipologia = "AR"
         elif str(self.comboBox_tipologia.currentText()) == "Sintetizzatori":
-            tipologia = "ST"
-        categoria = str(self.comboBox_tipo.currentText())
+            tipologia = "ST"'''
+        tipologia = str(self.comboBox_tipologia.currentText())
+        categoria = str(self.comboBox_categoria.currentText())
         materiale = self.lineEdit_materiale.text()
         colore = self.lineEdit_colore.text()
         quantita = self.lineEdit_quantita.text()
