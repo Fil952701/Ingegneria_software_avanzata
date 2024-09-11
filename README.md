@@ -3,6 +3,6 @@ Questo progetto consiste nella realizzazione di un software gestionale per un ne
 
 Ho utilizzato il linguaggio Python 3 con la libreria PyQt5 per l'interfaccia grafica.
 
-Credenziali per effettuare l'inizializzazione
-- username: 124980
-- password: 124980
+Credenziali per effettuare l'accesso amministratore
+- username: 1234
+- password: 1234
